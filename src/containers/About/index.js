@@ -5,32 +5,31 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
-	return {
-        abc: 'ABC'
-	};
+  return {
+    abc: 'ABC'
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		action: bindActionCreators(
-			dispatch,
-		),
-	};
+  return {
+    action: bindActionCreators(
+      dispatch ),
+  };
 };
 
-export const HomeContainer = (props) => {
-    return (
-        <h2>HomeContainer</h2>
-    );
+export const AboutContainer = (props) => {
+  return (
+    <h2>AboutContainer</h2>
+  );
 };
 
-HomeContainer.propTypes = {
+AboutContainer.propTypes = {
     action: PropTypes.shape({
         login: PropTypes.func.isRequired,
     }).isRequired,
 };
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(withRouter(HomeContainer));
+  mapStateToProps,
+  mapDispatchToProps,
+)(withRouter(AboutContainer));

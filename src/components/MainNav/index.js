@@ -38,20 +38,18 @@ export const MainNavComponent = (props) => {
     }
 
     return (
-        <asign className="main-nav">
+        <div className="main-nav">
             <ul>
                 <li></li>
             </ul>
-        </asign>
+        </div>
 	);
 };
 
 MainNavComponent.propTypes = {
     auth: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
     action: PropTypes.shape({
-        signIn: PropTypes.func.isRequired,
+        signOut: PropTypes.func.isRequired,
     }).isRequired,
 };
 

@@ -9,9 +9,9 @@ const auth = (state = {}, action) => {
         case SIGN_IN_REQUEST:
             return { ...state, loading: true };
         case SIGN_IN_SUCCESS:
-            return { ...state, auth: action.payload, loading: false };
+            return { ...state, ...action.payload };
         case SIGN_IN_FAILURE:
-            return { ...state, auth: action.payload, loading: false };
+            return { ...state, ...action.payload };
         case SIGN_OUT_SUCCESS:
             return { ...state, auth: {} }
         default:

@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'src/containers/SignIn/node_modules/react';
-import PropTypes from 'src/containers/SignIn/node_modules/prop-types';
-import { bindActionCreators } from 'src/containers/SignIn/node_modules/redux';
-import { connect } from 'src/containers/SignIn/node_modules/react-redux';
-import { withRouter } from 'src/containers/SignIn/node_modules/react-router-dom';
-import { signIn } from 'src/containers/SignIn/node_modules/src/redux/actions/auth';
+import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { signIn } from 'src/redux/actions/auth';
 
 import styles from './styles.module.scss';
 
 const mapStateToProps = (state) => {
-	return {};
+	return {
+        auth: state.auth,
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -19,16 +22,23 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
+const storage = window.localStorage;
+
 export const SignInContainer = (props) => {
-    const [ username, setUsername ] = useState('');
-    const [ password, setPassword ] = useState('');
+    const { auth } = props;
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
-        const storage = window.localStorage;
         if (storage.getItem('__TOKEN__')) {
-            window.history.pushState('/');
+            setLoggedIn(true);
         }
-    });
+        if (auth && auth.token) {
+            storage.setItem('__TOKEN__', auth.token);
+            setLoggedIn(true);
+        }
+    }, [auth]);
 
     const handleOnChange = (event) => {
         const { name, value } = event.target;
@@ -43,10 +53,14 @@ export const SignInContainer = (props) => {
         event.preventDefault();
 
         if (username && password) {
-            props.action.signin({username, password});
+            props.action.signIn({username, password});
         }
     };
 
+    if (loggedIn) {
+        return <Redirect to="/" />
+    }
+    
     return (
         <div className="container">
             <div className="row">
@@ -76,10 +90,11 @@ export const SignInContainer = (props) => {
 };
 
 SignInContainer.propTypes = {
+    auth: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     action: PropTypes.shape({
-        signin: PropTypes.func.isRequired,
+        signIn: PropTypes.func.isRequired,
     }).isRequired,
 };
 

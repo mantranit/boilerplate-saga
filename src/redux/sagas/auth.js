@@ -14,10 +14,10 @@ function* authenticate(action) {
         payload: { token: 'xxx.yyyy.zzzz' },
     });
 
-    yield put({ 
-        type: SIGN_IN_FAILURE, 
-        payload: { error: 'Sign In Failure' },
-    });
+    // yield put({ 
+    //     type: SIGN_IN_FAILURE, 
+    //     payload: { error: 'Sign In Failure' },
+    // });
 }
 function* signOut() {
     yield put({ 

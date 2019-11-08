@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+
+import { signOut } from 'src/redux/actions/auth';
+import MainNav from 'src/components/MainNav';
+
+import styles from './styles.module.scss';
 
 const mapStateToProps = (state) => {
 	return {};
@@ -11,19 +16,27 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		action: bindActionCreators({
+            signOut
         }, dispatch),
 	};
 };
 
 export const HomeContainer = (props) => {
     return (
-        <h2>HomeContainer</h2>
+        <Fragment>
+            <div className={styles.mainNav}>
+                <MainNav/>
+            </div>
+            <div className={styles.mainContent}>
+                ABC
+            </div>
+        </Fragment>
     );
 };
 
 HomeContainer.propTypes = {
     action: PropTypes.shape({
-        login: PropTypes.func.isRequired,
+        signOut: PropTypes.func.isRequired,
     }).isRequired,
 };
 

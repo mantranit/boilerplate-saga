@@ -1,24 +1,34 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-
-import { login } from "src/redux/actions/auth";
+import React, { useState, useEffect } from 'src/containers/SignIn/node_modules/react';
+import PropTypes from 'src/containers/SignIn/node_modules/prop-types';
+import { bindActionCreators } from 'src/containers/SignIn/node_modules/redux';
+import { connect } from 'src/containers/SignIn/node_modules/react-redux';
+import { withRouter } from 'src/containers/SignIn/node_modules/react-router-dom';
+import { signIn } from 'src/containers/SignIn/node_modules/src/redux/actions/auth';
 
 import styles from './styles.module.scss';
+
+const mapStateToProps = (state) => {
+	return {};
+};
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		action: bindActionCreators({
-            login,
+            signIn,
         }, dispatch),
 	};
 };
 
-export const SigninContainer = (props) => {
+export const SignInContainer = (props) => {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
+
+    useEffect(() => {
+        const storage = window.localStorage;
+        if (storage.getItem('__TOKEN__')) {
+            window.history.pushState('/');
+        }
+    });
 
     const handleOnChange = (event) => {
         const { name, value } = event.target;
@@ -33,7 +43,7 @@ export const SigninContainer = (props) => {
         event.preventDefault();
 
         if (username && password) {
-            props.action.login({username, password});
+            props.action.signin({username, password});
         }
     };
 
@@ -65,14 +75,15 @@ export const SigninContainer = (props) => {
 	);
 };
 
-SigninContainer.propTypes = {
+SignInContainer.propTypes = {
     history: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     action: PropTypes.shape({
-        login: PropTypes.func.isRequired,
+        signin: PropTypes.func.isRequired,
     }).isRequired,
 };
 
 export default connect(
+    mapStateToProps,
 	mapDispatchToProps,
-)(withRouter(SigninContainer));
+)(withRouter(SignInContainer));

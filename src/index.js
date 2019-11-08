@@ -1,20 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { logger } from 'redux-logger';
 import './assets/scss/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import configureStore from './redux/configureStore';
 import { createBrowserHistory } from 'history';
 
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import createRootReducer from './redux/reducers';
+import rootSaga from './redux/sagas';
+
 const history = createBrowserHistory();
-const initialState = {};
-const store = configureStore(initialState, history);
+const reducers = createRootReducer(history);
+
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(
+    reducers,
+    applyMiddleware(sagaMiddleware, logger),
+);
+sagaMiddleware.run(rootSaga);
 
 const render = (Component) => {
     ReactDOM.render(
         <AppContainer>
-            <Component store={store} history={history}/>
+            <Component store={store} history={history} />
         </AppContainer>,
         document.getElementById('root')
     );

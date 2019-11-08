@@ -5,16 +5,13 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
-	return {
-        abc: 'ABC'
-	};
+	return {};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		action: bindActionCreators(
-			dispatch,
-		),
+		action: bindActionCreators({
+        }, dispatch),
 	};
 };
 

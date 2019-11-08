@@ -1,12 +1,12 @@
-export const login = (payload) => {
-    const { username, password } = payload;
+import {
+    SIGN_IN_REQUEST,
+    SIGN_OUT_REQUEST
+} from 'src/redux/reducers/auth';
 
-    return (dispatch) => {
-        return dispatch({
-            type: 'SIGNIN_SUCCESS',
-            payload: {
-                token: 'xxx.yyy.zzz',
-            },
-        })
-    }
-};
+export const signIn = (payload) => ({
+    type: SIGN_IN_REQUEST,
+    payload,
+});
+export const signOut = () => ({
+    type: SIGN_OUT_REQUEST,
+});

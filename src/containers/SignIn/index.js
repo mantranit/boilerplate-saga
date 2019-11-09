@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { signIn } from 'src/redux/actions/auth';
 
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
 import styles from './styles.module.scss';
 
 const mapStateToProps = (state) => {
@@ -40,12 +43,11 @@ export const SignInContainer = (props) => {
         }
     }, [auth]);
 
-    const handleOnChange = (event) => {
-        const { name, value } = event.target;
+    const handleOnChange = (name) => (event) => {
         if (name === 'username') {
-            setUsername(value);
+            setUsername(event.target.value);
         } else {
-            setPassword(value);
+            setPassword(event.target.value);
         }
     };
 
@@ -60,29 +62,44 @@ export const SignInContainer = (props) => {
     if (loggedIn) {
         return <Redirect to="/" />
     }
-    
+
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                    <div className={"card my-5 " + styles["card-signin"]}>
-                        <div className={styles["card-body"]}>
-                            <h5 className="card-title text-center">Sign In</h5>
-                            <form className="form-signin" onSubmit={(e) => handleOnSubmit(e)}>
-                                <div className="form-label-group mb-3">
-                                    <label htmlFor="inputEmail">Email address</label>
-                                    <input type="email" id="inputEmail" value={username} onChange={(e) => handleOnChange(e)} name="username" className="form-control" placeholder="Email address" required/>
-                                </div>
-                                <div className="form-label-group mb-4">
-                                    <label htmlFor="inputPassword">Password</label>
-                                    <input type="password" id="inputPassword" value={password} onChange={(e) => handleOnChange(e)} name="password" className="form-control" placeholder="Password" required/>
-                                </div>
-                                <button className="btn btn-lg btn-success btn-block text-uppercase" type="submit">
-                                    Sign in
-                                </button>
-                            </form>
+        <div className={styles.root}>
+            <div className={styles.container}>
+                <h1>
+                    <img src={'https://charitymiles.org/wp-content/uploads/2018/05/cm2.png'} alt="CM"/>
+                </h1>
+                <div>
+                    <form onSubmit={handleOnSubmit}>
+                        <div className={styles.inputWrap}>
+                            <TextField
+                                fullWidth
+                                label="Email"
+                                type="email"
+                                value={username}
+                                onChange={handleOnChange('username')}
+                            />
                         </div>
-                    </div>
+                        <div className={styles.inputWrap}>
+                            <TextField
+                                fullWidth
+                                label="Password"
+                                type="password"
+                                value={password}
+                                onChange={handleOnChange('password')}
+                            />
+                        </div>
+                        <div>
+                            <Button
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                type="submit"
+                            >
+                                Sign in
+                            </Button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

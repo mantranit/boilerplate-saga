@@ -1,13 +1,16 @@
 import React  from 'react';
 import { withRouter } from 'react-router-dom';
 
-import MainLayout from 'src/components/MainLayout';
+import Layout from 'src/components/Layout';
+import styles from './styles.module.scss';
 
 export const HomeContainer = (props) => {
     return (
-        <MainLayout>
-            ABC
-        </MainLayout>
+        <Layout>
+            <div className={styles.empty}>
+                <h2>Coming soon...</h2>
+            </div>
+        </Layout>
     );
 };
 

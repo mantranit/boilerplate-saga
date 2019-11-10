@@ -29,7 +29,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const storage = window.localStorage;
 
-export const MainNavComponent = (props) => {
+export const NavigationComponent = (props) => {
     const { auth, navData } = props;
     const [anchorEl, setAnchorEl] = useState(undefined);
     const [loggedOut, setLoggedOut] = useState(false);
@@ -107,7 +107,7 @@ export const MainNavComponent = (props) => {
 	);
 };
 
-MainNavComponent.propTypes = {
+NavigationComponent.propTypes = {
     auth: PropTypes.object.isRequired,
     navData: PropTypes.array,
     action: PropTypes.shape({
@@ -115,11 +115,11 @@ MainNavComponent.propTypes = {
     }).isRequired,
 };
 
-MainNavComponent.defaultProps = {
+NavigationComponent.defaultProps = {
     navData: [],
 };
 
 export default connect(
     mapStateToProps,
 	mapDispatchToProps,
-)(MainNavComponent);
+)(NavigationComponent);

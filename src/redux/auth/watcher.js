@@ -8,16 +8,16 @@ import {
 } from './reducer';
 
 function* authenticate(action) {
-    // console.log(action);
-    // yield put({
-    //     type: SIGN_IN_SUCCESS,
-    //     payload: { token: 'xxx.yyyy.zzzz' },
-    // });
-
+    console.log(action);
     yield put({
-        type: SIGN_IN_FAILURE,
-        payload: { error: 'Sign In Failure' },
+        type: SIGN_IN_SUCCESS,
+        payload: { token: 'xxx.yyyy.zzzz' },
     });
+
+    // yield put({
+    //     type: SIGN_IN_FAILURE,
+    //     payload: { error: 'Sign In Failure' },
+    // });
 }
 function* signOut() {
     yield put({

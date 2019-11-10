@@ -4,6 +4,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import Layout from 'src/components/Layout';
+import styles from './styles.module.scss';
+
 const mapStateToProps = (state) => {
 	return {};
 };
@@ -17,13 +20,16 @@ const mapDispatchToProps = (dispatch) => {
 
 export const AboutContainer = (props) => {
 	return (
-		<h2>AboutContainer</h2>
+		<Layout>
+			<div className={styles.empty}>
+				<h2>Coming soon...</h2>
+			</div>
+		</Layout>
 	);
 };
 
 AboutContainer.propTypes = {
 	action: PropTypes.shape({
-		login: PropTypes.func.isRequired,
 	}).isRequired,
 };
 

@@ -28,6 +28,13 @@ const theme = createMuiTheme({
             hint: 'rgba(0, 0, 0, 0.38)',
         },
     },
+    overrides: {
+        MuiIconButton: {
+            root: {
+                fontSize: '1.1rem',
+            }
+        }
+    }
 });
 
 export const App = (props) => {

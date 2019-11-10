@@ -1,7 +1,9 @@
 @import '~reset-css/sass/reset';
+@import '~@mdi/font/css/materialdesignicons.min.css';
 
 body{
-    font-family: 'Poppins', Helvetica, Arial, sans-serif;
+    font-family: 'Poppins', Helvetica, Arial, sans-serif !important;
+    background-color: #f5f5f5 !important;
 }
 
 /* Change Autocomplete styles in Chrome*/
@@ -15,4 +17,8 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     background: none !important;
+}
+.mdi {
+    width: 22px;
+    height: 22px;
 }

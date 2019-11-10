@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { signIn } from 'src/redux/actions/auth';
+import { signIn } from 'src/redux/auth/action';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -67,7 +67,7 @@ export const SignInContainer = (props) => {
         <div className={styles.root}>
             <div className={styles.container}>
                 <h1>
-                    <img src={'https://charitymiles.org/wp-content/uploads/2018/05/cm2.png'} alt="CM"/>
+                    <img src={'http://www.mantran.net/assets/images/favicon/favicon-ios.png'} alt="M"/>
                 </h1>
                 <div>
                     <form onSubmit={handleOnSubmit}>
@@ -108,8 +108,6 @@ export const SignInContainer = (props) => {
 
 SignInContainer.propTypes = {
     auth: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
     action: PropTypes.shape({
         signIn: PropTypes.func.isRequired,
     }).isRequired,

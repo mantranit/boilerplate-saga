@@ -1,0 +1,47 @@
+.navigation {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.logo {
+    padding: 16px;
+    display: block;
+    img {
+        width: 50px;
+        height: auto;
+    }
+}
+.btnLogout{
+    position: absolute;
+    right: 4px;
+    top: 4px;
+}
+.menu {
+    .group {
+        font-weight: 700;
+        color: #43a5ed;
+        font-size: 12px;
+        padding: 7px 16px 0;
+    }
+    .item {
+        border-radius: 0;
+        display: block;
+        text-align: left;
+        font-size: 14px;
+        text-transform: none;
+        padding: 7px 16px;
+    }
+    .inner{
+        display: flex;
+        align-items: center;
+        .icon{
+            margin-right: 7px;
+            font-size: 17px;
+        }
+    }
+    .active{
+        color: #41C469;
+        font-weight: 500;
+    }
+}

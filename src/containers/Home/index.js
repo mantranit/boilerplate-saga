@@ -1,46 +1,14 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React  from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { signOut } from 'src/redux/actions/auth';
-import MainNav from 'src/components/MainNav';
-
-import styles from './styles.module.scss';
-
-const mapStateToProps = (state) => {
-	return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		action: bindActionCreators({
-            signOut
-        }, dispatch),
-	};
-};
+import MainLayout from 'src/components/MainLayout';
 
 export const HomeContainer = (props) => {
     return (
-        <Fragment>
-            <div className={styles.mainNav}>
-                <MainNav/>
-            </div>
-            <div className={styles.mainContent}>
-                ABC
-            </div>
-        </Fragment>
+        <MainLayout>
+            ABC
+        </MainLayout>
     );
 };
 
-HomeContainer.propTypes = {
-    action: PropTypes.shape({
-        signOut: PropTypes.func.isRequired,
-    }).isRequired,
-};
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(withRouter(HomeContainer));
+export default (withRouter(HomeContainer));

@@ -1,0 +1,11 @@
+.wrapper{
+    display: flex;
+}
+.mainNav{
+    width: 240px;
+    min-height: 100vh;
+    background-color: #fff;
+}
+.mainContent{
+    width: calc(100% - 240px);
+}

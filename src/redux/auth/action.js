@@ -1,7 +1,7 @@
 import {
     SIGN_IN_REQUEST,
     SIGN_OUT_REQUEST
-} from 'src/redux/reducers/auth';
+} from './reducer';
 
 export const signIn = (payload) => ({
     type: SIGN_IN_REQUEST,

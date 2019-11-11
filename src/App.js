@@ -29,10 +29,9 @@ const theme = createMuiTheme({
         },
     },
     typography: {
-        fontFamily: '"Exo 2", Roboto, Helvetica, Arial, sans-serif',
+        fontFamily: '"Centra No2", Roboto, Helvetica, Arial, sans-serif',
         body2: {
             fontSize: '15px',
-            backgroundColor: '#E5E5E5',
         }
     },
     overrides: {

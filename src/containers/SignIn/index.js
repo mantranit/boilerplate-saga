@@ -55,7 +55,7 @@ export const SignInContainer = (props) => {
         event.preventDefault();
 
         if (username && password) {
-            props.action.signIn({username, password});
+            props.action.signIn({email: username, password});
         }
     };
 
@@ -78,6 +78,9 @@ export const SignInContainer = (props) => {
                                 type="email"
                                 value={username}
                                 onChange={handleOnChange('username')}
+                                InputProps={{
+                                    readOnly: auth.loading
+                                }}
                             />
                         </div>
                         <div className={styles.inputWrap}>
@@ -87,6 +90,9 @@ export const SignInContainer = (props) => {
                                 type="password"
                                 value={password}
                                 onChange={handleOnChange('password')}
+                                InputProps={{
+                                    readOnly: auth.loading
+                                }}
                             />
                         </div>
                         <div>
@@ -95,6 +101,7 @@ export const SignInContainer = (props) => {
                                 variant="contained"
                                 color="primary"
                                 type="submit"
+                                disabled={auth.loading}
                             >
                                 Sign in
                             </Button>

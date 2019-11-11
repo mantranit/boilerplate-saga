@@ -3,7 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from 'src/containers/Home';
 import SignIn from 'src/containers/SignIn';
-import About from 'src/containers/About';
+import Challenges from 'src/containers/Challenges';
+import Gallery from 'src/containers/Gallery';
 import NotFound from 'src/containers/NotFound';
 
 import PrivateRoute from './PrivateRoute';
@@ -11,7 +12,8 @@ import PrivateRoute from './PrivateRoute';
 export default () => (
 	<Switch>
 		<PrivateRoute exact path="/" component={Home} />
-		<PrivateRoute path="/about" component={About} />
+		<PrivateRoute path="/challenges" component={Challenges} />
+		<PrivateRoute path="/gallery" component={Gallery} />
 		<Route path="/signin" component={SignIn} />
 		<Route component={NotFound} />
 	</Switch>

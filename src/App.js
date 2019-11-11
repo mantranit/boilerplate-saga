@@ -28,6 +28,13 @@ const theme = createMuiTheme({
             hint: 'rgba(0, 0, 0, 0.38)',
         },
     },
+    typography: {
+        fontFamily: '"Exo 2", Roboto, Helvetica, Arial, sans-serif',
+        body2: {
+            fontSize: '15px',
+            backgroundColor: '#E5E5E5',
+        }
+    },
     overrides: {
         MuiIconButton: {
             root: {

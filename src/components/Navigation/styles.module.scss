@@ -5,32 +5,40 @@
 }
 
 .logo {
-    padding: 16px;
+    padding: 50px 16px 0;
     display: block;
+    text-align: center;
     img {
-        width: 50px;
+        max-width: 50px;
         height: auto;
     }
 }
-.btnLogout{
-    position: absolute;
-    right: 4px;
-    top: 4px;
+.user{
+    padding: 0 16px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .icon{
+        font-size: 28px;
+        width: 30px;
+        height: 30px;
+    }
 }
 .menu {
     .group {
         font-weight: 700;
         color: #43a5ed;
         font-size: 12px;
-        padding: 7px 16px 0;
+        padding: 8px 18px 0;
     }
     .item {
         border-radius: 0;
         display: block;
         text-align: left;
-        font-size: 14px;
+        font-size: 15px;
         text-transform: none;
-        padding: 7px 16px;
+        padding: 8px 18px;
     }
     .inner{
         display: flex;
@@ -38,10 +46,12 @@
         .icon{
             margin-right: 7px;
             font-size: 17px;
+            width: auto;
+            height: auto;
         }
     }
     .active{
-        color: #41C469;
+        color: #4BA97C;
         font-weight: 500;
     }
 }

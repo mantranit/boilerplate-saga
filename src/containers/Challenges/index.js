@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export const AboutContainer = (props) => {
+export const ChallengesContainer = (props) => {
 	return (
 		<Layout>
 			<div className={styles.empty}>
@@ -28,7 +28,7 @@ export const AboutContainer = (props) => {
 	);
 };
 
-AboutContainer.propTypes = {
+ChallengesContainer.propTypes = {
 	action: PropTypes.shape({
 	}).isRequired,
 };
@@ -36,4 +36,4 @@ AboutContainer.propTypes = {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)(withRouter(AboutContainer));
+)(withRouter(ChallengesContainer));

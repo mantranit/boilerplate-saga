@@ -67,7 +67,7 @@ export const SignInContainer = (props) => {
         <div className={styles.root}>
             <div className={styles.container}>
                 <h1>
-                    <img src={'http://www.mantran.net/assets/images/favicon/favicon-ios.png'} alt="M"/>
+                    <img src={require('src/assets/images/logo.svg')} alt="CM"/>
                 </h1>
                 <div>
                     <form onSubmit={handleOnSubmit}>

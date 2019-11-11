@@ -35,35 +35,19 @@ LayoutComponent.propTypes = {
 LayoutComponent.defaultProps = {
     navData: [
         {
-            type: 'group',
-            text: 'MAIN',
-        },
-        {
             type: 'item',
             text: 'Dashboard',
             url: '/',
-            icon: {
-                classes: 'mdi mdi-view-dashboard',
-            },
         },
         {
             type: 'item',
-            text: 'About',
-            url: '/about',
-            icon: {
-                classes: 'mdi mdi-format-list-checks',
-                styles: {
-                    fontSize: '18px',
-                }
-            },
+            text: 'Challenges',
+            url: '/challenges',
         },
         {
             type: 'item',
-            text: 'Not found',
-            url: '/not-found',
-            icon: {
-                classes: 'mdi mdi-tune',
-            },
+            text: 'Gallery',
+            url: '/gallery',
         },
     ],
 };

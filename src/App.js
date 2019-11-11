@@ -27,6 +27,9 @@ const theme = createMuiTheme({
             disabled: 'rgba(0, 0, 0, 0.38)',
             hint: 'rgba(0, 0, 0, 0.38)',
         },
+        background: {
+            // default: 'plain-text apply to backgroundColor',
+        }
     },
     typography: {
         fontFamily: '"Centra No2", Roboto, Helvetica, Arial, sans-serif',
@@ -35,26 +38,33 @@ const theme = createMuiTheme({
         }
     },
     overrides: {
+        MuiCssBaseline: {
+            '@global': {
+                body: {
+                    background: 'linear-gradient(198.99deg, #FCFEFF 7.06%, #D9EAE4 92.38%);',
+                },
+            },
+        },
         MuiIconButton: {
             root: {
                 fontSize: '1.1rem',
             }
-        }
+        },
     }
 });
 
 export const App = (props) => {
-	const { store, history } = props;
-	return (
-		<MuiThemeProvider theme={theme}>
+    const { store, history } = props;
+    return (
+        <MuiThemeProvider theme={theme}>
             <CssBaseline />
-			<Provider store={store}>
-				<ConnectedRouter history={history}>
-					<Routes />
-				</ConnectedRouter>
-			</Provider>
-		</MuiThemeProvider>
-	);
+            <Provider store={store}>
+                <ConnectedRouter history={history}>
+                    <Routes />
+                </ConnectedRouter>
+            </Provider>
+        </MuiThemeProvider>
+    );
 };
 
 App.propTypes = {

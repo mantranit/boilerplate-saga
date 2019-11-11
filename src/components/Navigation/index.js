@@ -47,7 +47,7 @@ export const NavigationComponent = (props) => {
         setAnchorEl(undefined);
     };
 
-    const handleSignOut = () => {
+    const handleLogout = () => {
         storage.removeItem('__TOKEN__');
         props.action.signOut();
     };
@@ -63,20 +63,38 @@ export const NavigationComponent = (props) => {
                     <img src={require('src/assets/images/logo.svg')} alt="CM"/>
                 </div>
             </Link>
-            <div className={styles.user}>
+            <div className={styles.user} onClick={handleClick}>
                 Acme Company
-                <IconButton size="small" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                <IconButton size="small" aria-controls="user-menu" aria-haspopup="true">
                     <span className={'mdi mdi-menu-down ' + styles.icon}/>
                 </IconButton>
             </div>
             <Menu
-                id="simple-menu"
+                id="user-menu"
                 anchorEl={anchorEl}
                 keepMounted
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
+                getContentAnchorEl={null}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                }}
+                PaperProps={{
+                    className: styles.userMenu,
+                    style: {
+                        width: 146,
+                    }
+                }}
             >
-                <MenuItem onClick={handleSignOut}>Logout</MenuItem>
+                <MenuItem onClick={handleLogout} className={styles.userItem}>Logout</MenuItem>
+                <MenuItem onClick={handleClose} component={NavLink} className={styles.userItem} activeClassName={styles.userActive} exact to="/account">Account</MenuItem>
+                <MenuItem onClick={handleClose} component={NavLink} className={styles.userItem} activeClassName={styles.userActive} exact to="/resources">Resources</MenuItem>
+                <MenuItem onClick={handleClose} component={NavLink} className={styles.userItem} activeClassName={styles.userActive} exact to="/billing">Billing</MenuItem>
             </Menu>
             <div className={styles.menu}>
                 {navData.map((el, i) => {

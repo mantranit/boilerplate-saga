@@ -1,17 +1,16 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import AuthStorage from 'src/utils/authStorage';
 
 import Navigation from "../Navigation";
 
 import styles from './styles.module.scss';
 
-const storage = window.localStorage;
-
 export const LayoutComponent = (props) => {
     const { navData, children } = props;
 
-    if (!storage.getItem('__TOKEN__')) {
+    if (!AuthStorage.getAccessToken()) {
         return <Redirect to="/signin" />
     }
 

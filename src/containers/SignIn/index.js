@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { signIn } from 'src/redux/auth/action';
+import AuthStorage from 'src/utils/authStorage';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -25,8 +26,6 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-const storage = window.localStorage;
-
 export const SignInContainer = (props) => {
     const { auth } = props;
     const [username, setUsername] = useState('');
@@ -34,11 +33,12 @@ export const SignInContainer = (props) => {
     const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
-        if (storage.getItem('__TOKEN__')) {
+        if (AuthStorage.getAccessToken()) {
             setLoggedIn(true);
         }
         if (auth && auth.token) {
-            storage.setItem('__TOKEN__', auth.token);
+            AuthStorage.setAccessToken(auth.token);
+            AuthStorage.setName('Acme');
             setLoggedIn(true);
         }
     }, [auth]);

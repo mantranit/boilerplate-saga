@@ -1,12 +1,9 @@
-import {
-    SIGN_IN_REQUEST,
-    SIGN_OUT_REQUEST
-} from './reducer';
+import * as types from './index';
 
 export const signIn = (payload) => ({
-    type: SIGN_IN_REQUEST,
+    type: types.SIGN_IN_REQUEST,
     payload,
 });
 export const signOut = () => ({
-    type: SIGN_OUT_REQUEST,
+    type: types.SIGN_OUT_REQUEST,
 });

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { signOut } from 'src/redux/auth/action';
+import AuthStorage from 'src/utils/authStorage';
 
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
@@ -26,7 +27,6 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-const storage = window.localStorage;
 
 export const NavigationComponent = (props) => {
     const { auth, navData } = props;
@@ -34,7 +34,7 @@ export const NavigationComponent = (props) => {
     const [loggedOut, setLoggedOut] = useState(false);
 
     useEffect(() => {
-        if (!storage.getItem('__TOKEN__')) {
+        if (!AuthStorage.getAccessToken()) {
             setLoggedOut(true);
         }
     }, [auth]);
@@ -48,7 +48,7 @@ export const NavigationComponent = (props) => {
     };
 
     const handleLogout = () => {
-        storage.removeItem('__TOKEN__');
+        AuthStorage.destroy();
         props.action.signOut();
     };
 
@@ -64,7 +64,7 @@ export const NavigationComponent = (props) => {
                 </div>
             </Link>
             <div className={styles.user} onClick={handleClick}>
-                Acme Company
+                {AuthStorage.getName()} Company
                 <IconButton size="small" aria-controls="user-menu" aria-haspopup="true">
                     <span className={'mdi mdi-menu-down ' + styles.icon}/>
                 </IconButton>
@@ -86,9 +86,6 @@ export const NavigationComponent = (props) => {
                 }}
                 PaperProps={{
                     className: styles.userMenu,
-                    style: {
-                        width: 146,
-                    }
                 }}
             >
                 <MenuItem onClick={handleLogout} className={styles.userItem}>Logout</MenuItem>

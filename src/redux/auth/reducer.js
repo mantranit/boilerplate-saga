@@ -1,4 +1,4 @@
-import * as types from './index';
+import { types } from './index';
 
 const auth = (state = {}, action) => {
     switch (action.type) {

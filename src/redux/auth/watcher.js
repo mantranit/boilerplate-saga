@@ -1,12 +1,12 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import * as types from './index';
+import { types, urls } from './index';
 import { apiPost } from 'src/utils/api';
 import notify from 'src/utils/notify';
 
 function* authenticate(action) {
     try {
         const response = yield call(apiPost, {
-            path: 'companyAdmin/login',
+            path: urls.LOGIN,
             payload: action.payload
         });
         if (response.error) {
@@ -18,7 +18,7 @@ function* authenticate(action) {
         } else {
             yield put({
                 type: types.SIGN_IN_SUCCESS,
-                payload: response,
+                payload: response.data,
             });
         }
     } catch (error) {

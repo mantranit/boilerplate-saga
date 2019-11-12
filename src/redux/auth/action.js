@@ -1,4 +1,4 @@
-import * as types from './index';
+import { types } from './index';
 
 export const signIn = (payload) => ({
     type: types.SIGN_IN_REQUEST,

@@ -54,9 +54,8 @@ export const SignInContainer = (props) => {
     const handleOnSubmit = (event) => {
         event.preventDefault();
 
-        if (username && password) {
-            props.action.signIn({email: username, password});
-        }
+        // validate on server
+        props.action.signIn({email: username, password});
     };
 
     if (loggedIn) {

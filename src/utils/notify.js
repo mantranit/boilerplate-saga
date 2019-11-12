@@ -8,9 +8,6 @@ const Wrapper = ({ color, icon, message }) => (
 );
 
 class Notify {
-    constructor() {
-    }
-
     error(message) {
         toast(<Wrapper color="#D32F2E" icon="alert-circle" message={message}/>);
     };

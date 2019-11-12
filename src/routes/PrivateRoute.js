@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Route, Redirect } from 'react-router-dom';
-
-const storage = window.localStorage;
+import AuthStorage from 'src/utils/authStorage';
 
 const PrivateRoute = (props) => {
 	const { component: Component, ...rest } = props;
 
-	if (storage.getItem('__TOKEN__')) {
+	if (AuthStorage.getAccessToken()) {
 		return (
 			<Route
 				{...rest}

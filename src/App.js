@@ -63,17 +63,17 @@ export const App = (props) => {
                 <ConnectedRouter history={history}>
                     <Routes />
                 </ConnectedRouter>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={6000}
+                    hideProgressBar
+                    newestOnTop
+                    closeOnClick
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                />
             </Provider>
-            <ToastContainer
-                position="top-right"
-                autoClose={6000}
-                hideProgressBar
-                newestOnTop
-                closeOnClick
-                pauseOnVisibilityChange
-                draggable
-                pauseOnHover
-            />
         </MuiThemeProvider>
     );
 };

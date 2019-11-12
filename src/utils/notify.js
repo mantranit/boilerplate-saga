@@ -7,7 +7,7 @@ const Wrapper = ({ color, icon, message }) => (
     </div>
 );
 
-class Toastr {
+class Notify {
     constructor() {
     }
 
@@ -28,4 +28,4 @@ class Toastr {
     };
 }
 
-export default new Toastr();
+export default new Notify();

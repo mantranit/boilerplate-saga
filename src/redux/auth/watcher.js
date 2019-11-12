@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import * as types from './index';
 import { apiPost } from 'src/utils/api';
-import toastr from 'src/utils/toastr';
+import notify from 'src/utils/notify';
 
 function* authenticate(action) {
     try {
@@ -14,7 +14,7 @@ function* authenticate(action) {
                 type: types.SIGN_IN_FAILURE,
                 payload: response,
             });
-            toastr.error(response.error);
+            notify.error(response.error);
         } else {
             yield put({
                 type: types.SIGN_IN_SUCCESS,
@@ -26,7 +26,7 @@ function* authenticate(action) {
             type: types.SIGN_IN_FAILURE,
             payload: error,
         });
-        toastr.error(error);
+        notify.error(error);
     }
 }
 function* signOut() {

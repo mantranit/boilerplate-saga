@@ -3,10 +3,10 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import PropTypes from 'prop-types';
 import Routes from './routes';
-import ReduxToastr from 'react-redux-toastr';
 
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { ToastContainer } from 'react-toastify';
 
 const theme = createMuiTheme({
     palette: {
@@ -63,17 +63,17 @@ export const App = (props) => {
                 <ConnectedRouter history={history}>
                     <Routes />
                 </ConnectedRouter>
-                <ReduxToastr
-                    timeOut={400000}
-                    preventDuplicates
-                    position="top-right"
-                    getState={(state) => state.toastr} // This is the default
-                    transitionIn="fadeIn"
-                    transitionOut="fadeOut"
-                    closeOnToastrClick
-                    options={{ showCloseButton: false }}
-                />
             </Provider>
+            <ToastContainer
+                position="top-right"
+                autoClose={6000}
+                hideProgressBar
+                newestOnTop
+                closeOnClick
+                pauseOnVisibilityChange
+                draggable
+                pauseOnHover
+            />
         </MuiThemeProvider>
     );
 };

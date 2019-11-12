@@ -1,5 +1,5 @@
 @import '~@mdi/font/css/materialdesignicons.min.css';
-@import '~react-redux-toastr/src/styles/index';
+@import '~react-toastify/dist/ReactToastify.min.css';
 @import './fonts';
 
 /* Change Autocomplete styles in Chrome*/
@@ -17,4 +17,9 @@ select:-webkit-autofill:focus,
 select:-webkit-autofill:active {
     background: none !important;
     box-shadow: 0 0 0 300px white inset !important;
+}
+
+.Toastify__toast {
+    min-height: auto;
+    border-radius: 4px;
 }

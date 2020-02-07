@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { logger } from 'redux-logger';
-import './assets/scss/index.scss';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 import { createBrowserHistory } from 'history';
 
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import createRootReducer from './redux/reducers';
 import rootSaga from './redux/sagas';
+
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import './assets/scss/index.scss';
 
 const history = createBrowserHistory();
 const reducers = createRootReducer(history);

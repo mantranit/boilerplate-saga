@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const Wrapper = ({ color, icon, message }) => (
     <div style={{ color }}>
-        <span className={'mdi mdi-' + icon}/> {message}
+        <span className={`mdi mdi-${icon}`}/> {message}
     </div>
 );
 

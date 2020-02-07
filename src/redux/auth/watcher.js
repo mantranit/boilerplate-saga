@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { types, urls } from './index';
 import { apiPost } from 'src/utils/api';
 import notify from 'src/utils/notify';
+import { types, urls } from './index';
 
 function* authenticate(action) {
     try {

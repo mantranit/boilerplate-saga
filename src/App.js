@@ -2,11 +2,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import PropTypes from 'prop-types';
-import Routes from './routes';
 
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ToastContainer } from 'react-toastify';
+import Routes from './routes';
 import theme from './theme';
 
 export const App = (props) => {

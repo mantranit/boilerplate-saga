@@ -66,7 +66,7 @@ export const NavigationComponent = (props) => {
             <div className={styles.user} onClick={handleClick}>
                 {AuthStorage.getName()} Company
                 <IconButton size="small" aria-controls="user-menu" aria-haspopup="true">
-                    <span className={'mdi mdi-menu-down ' + styles.icon}/>
+                    <span className={`mdi mdi-menu-down ${styles.icon}`}/>
                 </IconButton>
             </div>
             <Menu

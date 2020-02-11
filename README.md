@@ -23,4 +23,4 @@ Builds the app for production to the `build` folder. It correctly bundles React 
 
 Similar `yarn build` but using .env.staging as configuration instead of .env.production
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) and [custom environment](https://create-react-app.dev/docs/adding-custom-environment-variables/) for more information.
